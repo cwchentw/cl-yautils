@@ -30,7 +30,7 @@ Scripts under *scripts* directory are optional. Just copy whatever you need.
 
 ## Documentation
 
-Pending.
+More on the way. Currently, see [examples](/examples/).
 
 ## Copyright
 
