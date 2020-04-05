@@ -10,7 +10,7 @@ cl-libs is still experimental and for personal use only. The API may change with
 
 ## System Requirements
 
-We test cl-libs on the following Common Lisp implementations:
+We test cl-libs against the following Common Lisp implementations:
 
 * SBCL (Steel Bank Common Lisp)
 * CCL (Clozure CL)
@@ -18,7 +18,7 @@ We test cl-libs on the following Common Lisp implementations:
 * ECL (Embeddable Common Lisp)
 * ABCL (Armed Bear Common Lisp)
 
-We run code of cl-libs in Windows, macOS and GNU/Linux.
+We run the code of cl-libs in Windows, macOS and GNU/Linux.
 
 ## How to Use?
 
