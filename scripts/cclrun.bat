@@ -1,4 +1,5 @@
 @echo off
+rem Place the script to the root of Clozure CL.
 rem Try the script later.
 
 rem Set CCL according to hardware archtecture.
