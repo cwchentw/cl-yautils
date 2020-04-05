@@ -1,5 +1,4 @@
 #!/bin/sh
-
 # The script assumes that SBCL is in system path.
 
 # Check whether SBCL is available.
