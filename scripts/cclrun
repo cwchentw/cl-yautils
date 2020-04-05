@@ -1,4 +1,5 @@
 #!/bin/sh
+# Place the script to the root of Clozure CL.
 
 if [ "Linux" = $(uname) ];
 then
