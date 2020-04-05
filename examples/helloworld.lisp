@@ -9,3 +9,4 @@
     (defvar *program* "program"))
 
 (compile-program *program* #'main)
+(quit-with-status 0)
