@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# The script assumes that SBCL is in system path.
+
 # Check whether SBCL is available.
 if ! command -v sbcl 2>/dev/null 1>&2;
 then
