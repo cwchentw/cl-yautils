@@ -1,4 +1,5 @@
 @echo off
+rem The script assumes that SBCL is in system path.
 
 rem Get the path of a Lisp script from first argument.
 set script=%1
