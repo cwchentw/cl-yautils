@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Check whether SBCL is available.
+if ! command -v sbcl 2>/dev/null 1>&2;
+then
+  echo "Please install SBCL" >&2;
+  exit 1;
+fi
+
+# Run SBCL with UTF-8 external format.
+sbcl --eval "(setf sb-impl::*default-external-format* :UTF-8)" "$@";
