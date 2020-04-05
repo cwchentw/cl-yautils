@@ -1,0 +1,27 @@
+#!/bin/sh
+# Place the script to the root path of ABCL.
+
+# Detect whether Java is available on your system.
+if ! command -v java -version 2>/dev/null 1>&2;
+then
+  echo "No Java on your system" >&2;
+  exit 1;
+fi
+
+# Locate the path of the script itself.
+root=$(dirname "$0");
+
+# Check whether some Lisp script is available.
+script=$1;
+
+if [ -z "$script" ] || [ ! -f "$script" ];
+then
+  echo "Not a valid Lisp script" >&2;
+  exit 1;
+fi
+
+# Consume first argument.
+shift;
+
+# Run ABCL quietly.
+java -jar "$root/abcl.jar" -jar "$root/abcl-contrib.jar" --noinform --load "$script" "$@";
