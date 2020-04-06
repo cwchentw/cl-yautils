@@ -1,9 +1,8 @@
 @echo off
 rem Place the script to the root of Clozure CL.
-rem Try the script later.
 
 rem Set CCL according to hardware archtecture.
-if "AMD64" == %PROCESSOR_ARCHITECTURE% (set ccl=wx86cl64.exe) else (set ccl=wx86cl.exe)
+if "%PROCESSOR_ARCHITECTURE%" == "AMD64" (set ccl=wx86cl64.exe) else (set ccl=wx86cl.exe)
 
 rem Get the root path of current batch script.
 set rootdir=%~dp0
@@ -18,4 +17,4 @@ rem Consume first argument.
 shift
 
 rem Run Clozure CL compiler.
-%rootdir%\%ccl% -l %script% %$
+%rootdir%\%ccl% -l %*
