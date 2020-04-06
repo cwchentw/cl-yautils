@@ -10,4 +10,4 @@ if not exist %script% do echo "Not a valid Lisp script" && exit /b 1
 rem Consume first argument.
 shift
 
-sbcl --noinform --eval "(setf sb-impl::*default-external-format* :UTF-8)" --script %script% %$
+sbcl --noinform --eval "(setf sb-impl::*default-external-format* :UTF-8)" --script %*
