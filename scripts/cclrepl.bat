@@ -1,5 +1,5 @@
 @echo off
-rem Place the script to the root of Clozure CL.
+rem Place the script to the root path of Clozure CL.
 
 rem Set CCL according to hardware archtecture.
 if "AMD64" == "%PROCESSOR_ARCHITECTURE%" (set ccl=wx86cl64.exe) else (set ccl=wx86cl.exe)
