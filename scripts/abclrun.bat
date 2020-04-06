@@ -1,4 +1,5 @@
 @echo off
+rem Place the script to the root of ABCL.
 
 rem Check whether Java is available.
 java -version >nul 2>&1 || ( echo "No Java on this system" && exit 1)
