@@ -1,5 +1,5 @@
 #!/bin/sh
-# Place the script to the root of Clozure CL.
+# Place the script to the root path of Clozure CL.
 
 if [ "Linux" = $(uname) ];
 then
