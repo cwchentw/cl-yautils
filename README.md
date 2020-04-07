@@ -30,7 +30,17 @@ Scripts under *scripts* directory are optional. Just copy whatever you need.
 
 ## Documentation
 
-More on the way. Currently, see [examples](/examples/).
+### Wrappers
+
+Scripts under *scripts* directory are wrappers for specific Common Lisp implementations. Among them, *xxxrun* (and *xxxrun.bat*) are used to invoke Common Lisp scripts in batch mode. *xxxrepl* (and *xxxrepl.bat*) are used to run a REPL environment of Common Lisp.
+
+Scripts without any file extension are POSIX shell scripts, for Unix. Scripts with *.bat* extension are Batch scripts, for Windows.
+
+Currently, we implement wrappers for SBCL, Clozure CL and ABCL.
+
+### *common.lisp*
+
+A collection of utility functions. See [examples](/examples/) for its usage.
 
 ## Copyright
 
