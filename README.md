@@ -26,13 +26,13 @@ We run the code of cl-libs in Windows, macOS and GNU/Linux.
 
 Copy *common.lisp* to your own project. Load it in your program.
 
-Scripts under *scripts* directory are optional. Just copy whatever you need.
+Scripts under [scripts](/scripts/) directory are optional. Just copy whatever you need.
 
 ## Documentation
 
 ### Wrappers
 
-Scripts under *scripts* directory are wrappers for specific Common Lisp implementations. Among them, *xxxrun* (and *xxxrun.bat*) are used to invoke Common Lisp scripts in batch mode. *xxxrepl* (and *xxxrepl.bat*) are used to run a REPL environment of Common Lisp.
+Scripts under [scripts](/scripts/) directory are wrappers for specific Common Lisp implementations. Among them, *xxxrun* (and *xxxrun.bat*) are used to invoke Common Lisp scripts in batch mode. *xxxrepl* (and *xxxrepl.bat*) are used to run a REPL environment of Common Lisp.
 
 Scripts without any file extension are POSIX shell scripts, for Unix. Scripts with *.bat* extension are Batch scripts, for Windows.
 
