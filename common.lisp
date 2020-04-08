@@ -33,8 +33,8 @@
       (write-line (princ-to-string obj) *error-output*)))
 
 (defun quit-with-status (status)
-  (declare (integer status))
   "Quit a program with exit status"
+  (check-type status integer)
   #+sbcl   (sb-ext:quit :unix-status status)
   #+ccl    (if (string= "Microsoft Windows" (software-type))
                (external-call "exit" :int status)
@@ -47,9 +47,9 @@
     (cl-user::quit status))
 
 (defun compile-program (program main)
-  (declare (string program)
-           (function main))
   "Compile a program to an executable"
+  (check-type program string)
+  (check-type main function)
   #+sbcl  (sb-ext:save-lisp-and-die program
                                     :toplevel main
                                     :executable t)
