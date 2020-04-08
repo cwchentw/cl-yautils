@@ -1,5 +1,5 @@
 (defun defboolean ()
-  "Boolean constant"
+  "Alias as boolean constant"
   (defconstant true t "Alias to t")
   (defconstant false nil "Alias to nil"))
 
@@ -15,13 +15,13 @@
                         (or state (make-random-state t)))))))
 
 (defun puts (obj)
-  "Print to standard output with trailing newline."
+  "Print obj to standard output with trailing newline."
   (if (stringp obj)
       (write-line obj)
       (write-line (princ-to-string obj))))
 
 (defun perror (obj)
-  "Print to standard error with trailing newline."
+  "Print obj to standard error with trailing newline."
   (if (stringp obj)
       (write-line obj *error-output*)
       (write-line (princ-to-string obj) *error-output*)))
