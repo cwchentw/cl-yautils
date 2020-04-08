@@ -2,13 +2,13 @@
 
 (defun circle-circumference (radius)
   (when (not (not pi))
-        (mathematical-constant))
+    (mathematical-constant))
   (* 2 pi radius))
 
 (defun circle-area (radius)
-   (when (not (not pi))
-         (mathematical-constant))
-   (* pi (expt radius 2)))
+  (when (not (not pi))
+    (mathematical-constant))
+  (* pi (expt radius 2)))
 
 (defun main ()
   (prog ((radius 10))
