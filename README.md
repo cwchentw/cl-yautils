@@ -1,18 +1,18 @@
-# cl-libs
+# cl-yautils
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Small but handy utilities for Common Lisp.
+Yet another utilities for Common Lisp.
 
 ## Warning
 
 DON'T USE IT IN PRODUCTION ENVIRONMENT.
 
-cl-libs is still experimental and for personal use only. The API may change without warning.
+cl-yautils is still experimental and for personal use only. The API may change without warning.
 
 ## System Requirements
 
-We test cl-libs against the following Common Lisp implementations:
+We test cl-yautils against the following Common Lisp implementations:
 
 * SBCL (Steel Bank Common Lisp)
 * CCL (Clozure CL)
@@ -20,11 +20,11 @@ We test cl-libs against the following Common Lisp implementations:
 * ECL (Embeddable Common Lisp)
 * ABCL (Armed Bear Common Lisp)
 
-We run the code of cl-libs in Windows, macOS and GNU/Linux.
+We run the code of cl-yautils on Windows, macOS and GNU/Linux.
 
 ## How to Use?
 
-Copy *common.lisp* to your own project. Load it in your program.
+Copy *cl-yautils.lisp* to your own project. Load it in your program.
 
 Scripts under [scripts](/scripts/) directory are optional. Just copy whatever you need.
 
@@ -38,7 +38,7 @@ Scripts without any file extension are POSIX shell scripts, for Unix. Scripts wi
 
 Currently, we implement wrappers for SBCL, Clozure CL and ABCL.
 
-### *common.lisp*
+### *cl-yautils.lisp*
 
 A collection of utility functions. See [examples](/examples/) for its usage.
 
