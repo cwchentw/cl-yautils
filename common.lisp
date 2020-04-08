@@ -3,6 +3,9 @@
   (defconstant true t "Alias to t")
   (defconstant false nil "Alias to nil"))
 
+(defmacro existp (obj)
+  `(and (ignore-errors ,obj) t))
+
 (defun average (lst)
   "Get the average of a number list."
   (check-type lst list)
