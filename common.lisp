@@ -1,9 +1,10 @@
 (defun boolean-alias ()
-  "Alias as boolean constant"
+  "Alias as boolean constants"
   (defconstant true t "Alias to t")
   (defconstant false nil "Alias to nil"))
 
 (defun mathematical-constant ()
+  "Common mathematical constants"
   (defconstant +pi+ 3.1415926536d0
      "The ratio between the circumference and diameter of a circle")
   (defconstant +e+ 2.7182818284d0
