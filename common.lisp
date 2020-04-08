@@ -3,6 +3,17 @@
   (defconstant true t "Alias to t")
   (defconstant false nil "Alias to nil"))
 
+(defun random-integer (small large &optional state)
+  "Get a random integer between small and large."
+  (check-type small integer)
+  (check-type large integer)
+  (assert (< small large))
+  (let (answer)
+       (setq answer
+             (+ small
+                (random (1+ (- large small))
+                        (or state (make-random-state t)))))))
+
 (defun puts (obj)
   "Print to standard output with trailing newline."
   (if (stringp obj)
