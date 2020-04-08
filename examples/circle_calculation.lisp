@@ -11,9 +11,9 @@
    (* pi (expt radius 2)))
 
 (defun main ()
-   (prog ((radius 10))
-     (puts (circle-circumference radius))
-     (puts (circle-area radius))
-     (quit-with-status 0)))
+  (prog ((radius 10))
+    (puts (circle-circumference radius))
+    (puts (circle-area radius))
+    (quit-with-status 0)))
 
 (main)
