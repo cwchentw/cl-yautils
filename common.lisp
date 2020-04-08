@@ -3,7 +3,7 @@
   (defconstant true t "Alias to t")
   (defconstant false nil "Alias to nil"))
 
-(defmacro existp (obj)
+(defmacro definedp (obj)
   `(and (ignore-errors ,obj) t))
 
 (defun average (lst)
