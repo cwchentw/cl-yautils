@@ -1,4 +1,4 @@
-(defun defboolean ()
+(defun boolean-alias ()
   "Alias as boolean constant"
   (defconstant true t "Alias to t")
   (defconstant false nil "Alias to nil"))
