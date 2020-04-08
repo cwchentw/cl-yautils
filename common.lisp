@@ -3,6 +3,12 @@
   (defconstant true t "Alias to t")
   (defconstant false nil "Alias to nil"))
 
+(defun average (lst)
+  "Get the average of a number list."
+  (check-type lst list)
+  (assert (every #'numberp lst))
+  (/ (apply #'+ lst) (length lst)))
+
 (defun random-integer (small large &optional state)
   "Get a random integer between small and large."
   (check-type small integer)
