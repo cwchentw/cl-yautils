@@ -9,7 +9,7 @@
   (assert (every #'numberp seq))
   (/ (apply #'+ seq) (length seq)))
 
-(defun random-integer (small large &optional state)
+(defun random-integer (small large &optional seed)
   "Get a random integer between small and large."
   (check-type small integer)
   (check-type large integer)
@@ -18,7 +18,7 @@
        (setq answer
              (+ small
                 (random (1+ (- large small))
-                        (or state (make-random-state t)))))))
+                        (or seed (make-random-state t)))))))
 
 (defun puts (obj)
   "Print obj to standard output with trailing newline."
