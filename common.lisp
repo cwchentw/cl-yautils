@@ -5,9 +5,9 @@
 
 (defun mathematical-constant ()
   "Common mathematical constants"
-  (defconstant +pi+ 3.1415926536d0
+  (defconstant pi 3.1415926536d0
      "The ratio between the circumference and diameter of a circle")
-  (defconstant +e+ 2.7182818284d0
+  (defconstant e 2.7182818284d0
      "The base of natural logarithm"))
 
 (defun average (lst)
