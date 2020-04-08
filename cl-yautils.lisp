@@ -1,3 +1,6 @@
+(defvar *safe-mode* nil
+  "Validate data at runtime")
+
 (defun boolean-alias ()
   "Alias as boolean constants"
   (defconstant true t "Alias to t")
@@ -8,20 +11,20 @@
 
 (defun average (lst)
   "Get the average of a number list."
-  (check-type lst list)
-  (assert (every #'numberp lst))
+  (when *safe-mode*
+    (check-type lst list)
+    (assert (every #'numberp lst)))
   (/ (apply #'+ lst) (length lst)))
 
 (defun random-integer (small large &optional seed)
   "Get a random integer between small and large."
-  (check-type small integer)
-  (check-type large integer)
-  (assert (< small large))
-  (let (answer)
-       (setq answer
-             (+ small
-                (random (1+ (- large small))
-                        (or seed (make-random-state t)))))))
+  (when *safe-mode*
+    (check-type small integer)
+    (check-type large integer)
+    (assert (< small large)))
+  (+ small
+     (random (1+ (- large small))
+             (or seed (make-random-state t)))))
 
 (defun puts (obj)
   "Print obj to standard output with trailing newline."
@@ -37,7 +40,8 @@
 
 (defun quit-with-status (status)
   "Quit a program with exit status"
-  (check-type status integer)
+  (when *safe-mode*
+    (check-type status integer))
   #+sbcl   (sb-ext:quit :unix-status status)
   #+ccl    (if (string= "Microsoft Windows" (software-type))
                (external-call "exit" :int status)
@@ -51,8 +55,9 @@
 
 (defun compile-program (program main)
   "Compile a program to an executable"
-  (check-type program string)
-  (check-type main function)
+  (when *safe-mode*
+    (check-type program string)
+    (check-type main function))
   #+sbcl  (sb-ext:save-lisp-and-die program
                                     :toplevel main
                                     :executable t)
