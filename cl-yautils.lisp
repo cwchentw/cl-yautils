@@ -7,6 +7,7 @@
   (:export :*safe-mode*
            :boolean-alias
            :definedp
+           :nullable
            :average
            :random-integer
            :puts
@@ -29,6 +30,10 @@
 (defmacro definedp (obj)
   "Check whether obj is defined."
   `(and (ignore-errors ,obj) t))
+
+(deftype nullable (type)
+  "Define nullable type"
+  `(or null ,type))
 
 (defun average (lst)
   (declare (ftype (function (list) number) average))
@@ -65,8 +70,8 @@
       (write-line obj *error-output*)
       (write-line (princ-to-string obj) *error-output*)))
 
-(defun quit-with-status (status)
-  (declare (integer status))
+(defun quit-with-status (&optional status)
+  (declare ((nullable integer) status))
   "Quit a program with exit status"
   (when *safe-mode*
     (check-type status integer))
