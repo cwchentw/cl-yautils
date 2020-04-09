@@ -73,11 +73,13 @@
 (defun quit-with-status (&optional status)
   (declare ((nullable integer) status))
   "Quit a program with exit status"
+  (when (null status)  ; Fallback to default status
+    (setq status 0))   ;  when no status is assigned.
   (when *safe-mode*
     (check-type status integer))
   #+sbcl   (sb-ext:quit :unix-status status)
   #+ccl    (if (string= "Microsoft Windows" (software-type))
-               (external-call "exit" :int status)
+               (ccl:external-call "exit" :int status)
                (ccl:quit status))
   #+clisp  (ext:quit status)
   #+ecl    (ext:quit status)
