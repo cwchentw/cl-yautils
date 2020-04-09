@@ -1,4 +1,6 @@
-(load "common.lisp")
+(load "cl-yautils.lisp")
+
+(use-package 'cl-yautils)
 
 (defun main ()
   (assert (definedp t))

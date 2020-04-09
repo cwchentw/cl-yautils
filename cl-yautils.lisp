@@ -1,3 +1,22 @@
+(in-package :cl-user)
+
+(defpackage :cl-yautils
+  (:use :cl)
+  (:documentation
+    "Yet another utilities for Common Lisp")
+  (:export :*safe-mode*
+           :boolean-alias
+           :definedp
+           :average
+           :random-integer
+           :puts
+           :perror
+           :quit-with-status
+           :compile-program
+           :platform))
+
+(in-package :cl-yautils)
+
 (defvar *safe-mode* nil
   "Validate data at runtime")
 
