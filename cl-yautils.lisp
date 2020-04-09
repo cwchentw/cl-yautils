@@ -21,14 +21,17 @@
   "Validate data at runtime")
 
 (defun boolean-alias ()
+  (declare (ftype (function () symbol) boolean-alias))
   "Alias as boolean constants"
   (defconstant true t "Alias to t")
   (defconstant false nil "Alias to nil"))
 
 (defmacro definedp (obj)
+  "Check whether obj is defined."
   `(and (ignore-errors ,obj) t))
 
 (defun average (lst)
+  (declare (ftype (function (list) number) average))
   "Get the average of a number list."
   (when *safe-mode*
     (check-type lst list)
@@ -36,6 +39,11 @@
   (/ (apply #'+ lst) (length lst)))
 
 (defun random-integer (small large &optional seed)
+  (declare
+    (ftype (function
+             (integer integer &optional random-state)
+             integer)
+           random-integer))
   "Get a random integer between small and large."
   (when *safe-mode*
     (check-type small integer)
@@ -58,6 +66,7 @@
       (write-line (princ-to-string obj) *error-output*)))
 
 (defun quit-with-status (status)
+  (declare (integer status))
   "Quit a program with exit status"
   (when *safe-mode*
     (check-type status integer))
@@ -73,6 +82,7 @@
     (cl-user::quit status))
 
 (defun compile-program (program main)
+  (declare (string program) (function main))
   "Compile a program to an executable"
   (when *safe-mode*
     (check-type program string)
@@ -92,6 +102,7 @@
     (error "Unsupported Common Lisp implementation"))
 
 (defun platform ()
+  (declare (ftype (function () symbol) platform))
   "Detect platform type"
   #+sbcl   (cond ((string= "Win32" (software-type)) :windows)
                  ((string= "Darwin" (software-type)) :macos)
