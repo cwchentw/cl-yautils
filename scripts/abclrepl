@@ -12,4 +12,4 @@ fi
 root=$(dirname "$0");
 
 # Run ABCL.
-java -jar "$root/abcl.jar" -jar "$root/abcl-contrib.jar" "$@";
+java -jar "$root/abcl.jar" --eval "(require :abcl-contrib)" "$@";
