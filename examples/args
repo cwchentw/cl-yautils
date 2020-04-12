@@ -51,7 +51,7 @@ case $lisp in
     ;;
   *)
     echo "Unsupported Common Lisp implementation" >&2;
-    usage >&2;
+    usage 2;
     exit 1;
 esac
 
