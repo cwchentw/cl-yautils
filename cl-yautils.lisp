@@ -14,6 +14,7 @@
            :perror
            :quit-with-status
            :compile-program
+           :argument-vector
            :platform))
 
 (in-package :cl-yautils)
@@ -106,6 +107,17 @@
                            :quiet t
                            :script nil)
   #-(or sbcl ccl clisp)
+    (error "Unsupported Common Lisp implementation"))
+
+(defun argument-vector ()
+  (declare (ftype (function () list) argument-vector))
+  "Portable argv (argument vector)"
+  #+sbcl   sb-ext:*posix-argv*
+  #+ccl    ccl:*command-line-argument-list*
+  #+clisp  (cons *load-truename* ext:*args*)
+  #+abcl   ext:*command-line-argument-list*
+  #+ecl    (ext:command-args)
+  #-(or sbcl ccl clisp abcl ecl)
     (error "Unsupported Common Lisp implementation"))
 
 (defun platform ()
