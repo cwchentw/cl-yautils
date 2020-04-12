@@ -8,7 +8,7 @@ usage () {
     stream="1";
   fi
 
-  echo "args [lisp] [param] ..." >&"$stream";
+  echo "Usage: $0 [lisp] [param] ..." >&"$stream";
   echo "" >&"$stream";
   echo "Valid Common Lisp implementation:" >&"$stream";
   echo "  sbcl" >&"$stream";
@@ -26,6 +26,12 @@ ECL="ecl"
 ABCL="abcl"
 
 lisp=$1;
+
+if [ "-h" = "$lisp" ] || [ "--help" = "$lisp" ];
+then
+  echo "Use \`$0 usage\` or \`$0 help\` to show help info";
+  exit;
+fi
 
 if [ "usage" = "$lisp" ] || [ "help" = "$lisp" ];
 then
