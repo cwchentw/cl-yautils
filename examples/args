@@ -1,5 +1,23 @@
 #!/bin/sh
 
+usage () {
+  local stream=$1;
+
+  if [ -z "$stream" ];
+  then
+    stream="1";
+  fi
+
+  echo "args [lisp] [param] ..." >&"$stream";
+  echo "" >&"$stream";
+  echo "Valid Common Lisp implementation:" >&"$stream";
+  echo "  sbcl" >&"$stream";
+  echo "  ccl" >&"$stream";
+  echo "  clisp" >&"$stream";
+  echo "  ecl" >&"$stream";
+  echo "  abcl" >&"$stream";
+}
+
 # Constants
 SBCL="sbcl"
 CCL="ccl"
@@ -8,6 +26,12 @@ ECL="ecl"
 ABCL="abcl"
 
 lisp=$1;
+
+if [ "usage" = "$lisp" ] || [ "help" = "$lisp" ];
+then
+  usage;
+  exit;
+fi
 
 case $lisp in
   "$SBCL")
@@ -27,6 +51,7 @@ case $lisp in
     ;;
   *)
     echo "Unsupported Common Lisp implementation" >&2;
+    usage >&2;
     exit 1;
 esac
 
