@@ -17,4 +17,4 @@ rem Consume first argument.
 shift
 
 rem Run Clozure CL compiler.
-%rootdir%\%ccl% -l %*
+%rootdir%%ccl% -l %*
