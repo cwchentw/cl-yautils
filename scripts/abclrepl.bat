@@ -8,4 +8,4 @@ rem Get the root path of current batch script.
 set rootdir=%~dp0
 
 rem Run Clozure CL compiler.
-java -jar %rootdir%\abcl.jar -jar %rootdir%\abcl-contrib.jar %*
+java -jar %rootdir%\abcl.jar --eval "(require :abcl-contrib)" %*
