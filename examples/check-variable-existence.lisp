@@ -3,13 +3,13 @@
 (use-package 'cl-yautils)
 
 (defun main ()
-  (assert (definedp t))
+  (assert (defined t))
   ; nil is undefined.
-  (assert (equal nil (definedp nil)))
-  (assert (definedp 3))
-  (assert (definedp '(1 2 3 4 5)))
+  (assert (equal nil (defined nil)))
+  (assert (defined 3))
+  (assert (defined '(1 2 3 4 5)))
   ; `non-existing` is undefined.
-  (assert (equal nil (definedp non-existing)))
+  (assert (equal nil (defined non-existing)))
   (quit-with-status 0))
 
 (main)
