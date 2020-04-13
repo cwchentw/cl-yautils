@@ -14,6 +14,7 @@
            :quit-with-status
            :compile-program
            :argument-vector
+           :argument
            :platform))
 
 (in-package :cl-yautils)
@@ -107,11 +108,22 @@
   "Portable argv (argument vector)"
   #+sbcl   sb-ext:*posix-argv*
   #+ccl    ccl:*command-line-argument-list*
-  #+clisp  (cons *load-truename* ext:*args*)
+  #+clisp  ext:*args*
   #+abcl   ext:*command-line-argument-list*
   #+ecl    (ext:command-args)
   #-(or sbcl ccl clisp abcl ecl)
     (error "Unsupported Common Lisp implementation"))
+
+(defun argument ()
+  (declare (ftype (function () list) argument))
+  "Processed command line argument(s)"
+  (let* ((args (argument-vector))
+         #+sbcl   (args (rest args))
+         #+ccl    (args (rest (rest (rest (rest args)))))
+         #+ecl    (args (rest (rest (rest args))))
+         ; In ABCL and CLISP, no loading script in argument(s).
+        )
+    (cons *load-truename* args)))
 
 (defun platform ()
   (declare (ftype (function () symbol) platform))

@@ -69,21 +69,21 @@ echo Unknown Common Lisp implementation
 exit /B 1
 
 :runsbcl
-sbclrun %rootdir%\args.lisp %args%
+sbclrun %rootdir%args.lisp %args%
 exit /B 0
 
 :runccl
-cclrun %rootdir%\args.lisp -- %args%
+cclrun %rootdir%args.lisp -- %args%
 exit /B 0
 
 :runclisp
-clisp %rootdir%\args.lisp %args%
+clisp %rootdir%args.lisp %args%
 exit /B 0
 
 :runecl
-ecl -shell %rootdir%\args.lisp %args%
+ecl -shell %rootdir%args.lisp %args%
 exit /B 0
 
 :runabcl
-abclrun %rootdir%\args.lisp -- %args%
+abclrun %rootdir%args.lisp -- %args%
 exit /B 0
