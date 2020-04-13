@@ -17,4 +17,4 @@ rem Consume first argument.
 shift
 
 rem Run ABCL compiler in batch mode.
-java -jar %rootdir%\abcl.jar --noinform --eval "(require :abcl-contrib)" --load %*
+java -jar %rootdir%abcl.jar --noinform --eval "(require :abcl-contrib)" --load %*
