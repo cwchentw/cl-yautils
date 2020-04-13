@@ -105,7 +105,7 @@
 
 (defun argument-vector ()
   (declare (ftype (function () list) argument-vector))
-  "Portable argv (argument vector)"
+  "Unprocessed argv (argument vector)"
   #+sbcl   sb-ext:*posix-argv*
   #+ccl    ccl:*command-line-argument-list*
   #+clisp  ext:*args*
@@ -116,7 +116,7 @@
 
 (defun argument ()
   (declare (ftype (function () list) argument))
-  "Processed command line argument(s)"
+  "Processed command-line argument(s)"
   (let* ((args (argument-vector))
          #+sbcl   (args (rest args))
          #+ccl    (args (rest (rest (rest (rest args)))))
