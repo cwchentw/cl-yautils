@@ -16,7 +16,7 @@ We test cl-yautils against the following Common Lisp implementations:
 
 * SBCL (Steel Bank Common Lisp)
 * CCL (Clozure CL)
-* Clisp
+* CLISP
 * ECL (Embeddable Common Lisp)
 * ABCL (Armed Bear Common Lisp)
 
@@ -40,7 +40,7 @@ Currently, we implement wrappers for SBCL, Clozure CL and ABCL.
 
 ### *cl-yautils.lisp*
 
-A collection of utility functions. This script is packaged under `cl-yautils`. See [examples](/examples/) for its usage.
+A collection of utility functions. This script is packaged under `:cl-yautils`. See [examples](/examples/) for its usage.
 
 ## Copyright
 
