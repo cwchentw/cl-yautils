@@ -14,7 +14,7 @@
            :quit-with-status
            :compile-program
            :argument-vector
-           :argument
+           :argument-script
            :platform))
 
 (in-package :cl-yautils)
@@ -114,9 +114,9 @@
   #-(or sbcl ccl clisp abcl ecl)
     (error "Unsupported Common Lisp implementation"))
 
-(defun argument ()
+(defun argument-script ()
   (declare (ftype (function () list) argument))
-  "Processed command-line argument(s)"
+  "Processed command-line argument(s) in scripting mode"
   (let* ((args (argument-vector))
          #+sbcl   (args (rest args))
          #+ccl    (args (rest (rest (rest (rest args)))))
