@@ -7,6 +7,7 @@
   (:export :*safe-mode*
            :defined
            :nullable
+           :while
            :average
            :random-integer
            :puts
@@ -29,6 +30,12 @@
 (deftype nullable (type)
   "Define nullable type"
   `(or null ,type))
+
+(defmacro while (test &body body)
+  `(loop
+      (when (not ,test)
+        (return))
+      ,@body))
 
 (defun average (lst)
   (declare (ftype (function (list) number) average))
@@ -115,7 +122,7 @@
     (error "Unsupported Common Lisp implementation"))
 
 (defun argument-script ()
-  (declare (ftype (function () list) argument))
+  (declare (ftype (function () list) argument-vector))
   "Processed command-line argument(s) in scripting mode"
   (let* ((args (argument-vector))
          #+sbcl   (args (rest args))
