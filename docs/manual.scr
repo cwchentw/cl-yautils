@@ -1,12 +1,39 @@
 @begin(section)
 @title(Overview)
 
+@image[src="https://img.shields.io/badge/License-MIT-yellow.svg"]()
+
+
 @i(Yet another) utility library for Common Lisp.
 
 
 @b(cl-yautils) solves usual Common Lisp issues like incompatibility between its
 implementations and its idiosyncratic problems. In addition, @b(cl-yautils)
 implements common utility function(s).
+
+
+See our repo @link[uri="https://github.com/cwchentw/cl-yautils/"](here).
+
+@end(section)
+
+@begin(section)
+@title(Install)
+
+Clone the repo to the @i(local-projects/) subdirectory of your QuickLisp distribution:
+
+@begin[lang=console](code)
+$ cd path/to/quicklisp/local-projects
+$ git clone https://github.com/cwchentw/cl-yautils.git
+@end(code)
+
+Later, @cl:spec(require) it in either a Lisp session or a Lisp script:
+
+@begin[lang=lisp](code)
+(require "cl-yautils")
+
+; Optional
+(use-package :cl-yautils)
+@end(code)
 
 @end(section)
 
