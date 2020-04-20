@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+  Function &ndash; cl-yautils
+</title>
+    <link rel="stylesheet" href="static/style.css"/>
+    
+  <link rel="stylesheet" href="static/highlight.css"/>
+  <script src="static/highlight.js"></script>
+  <style>
+   /* Highlight the current top-level TOC item, and hide the TOC of all other items */
+
+   .toc a[data-node="function"] {
+       color: #AD3108;
+   }
+
+   .toc ol {
+       display: none;
+   }
+
+   .toc > ol {
+       display: block;
+   }
+
+   .toc li a[data-node="function"] + ol {
+       display: block;
+   }
+
+   .toc li a[data-node="function"] + ol li {
+       font-size: 16px;
+       margin: 0 10px;
+   }
+
+   .toc li a[active] + ol li:first-child {
+       margin-top: 5px;
+   }
+  </style>
+
+  </head>
+  <body>
+    
+  <h1 class="doc-title">cl-yautils » Function</h1>
+  <article id="article" data-section="function">
+    <aside>
+      <ol class="toc"><li><a href="overview.html" data-node="overview">Overview</a></li><li><a href="function.html" data-node="function">Function</a></li><li><a href="macro.html" data-node="macro">Macro</a></li><li><a href="variable.html" data-node="variable">Variable</a></li></ol>
+    </aside>
+    <main class="codex-section">
+      <p>
+<div class="codex-doc-node codex-operator codex-function"><code class="codex-name">average</code><code class="codex-lambda-list">(lst)</code><div class="codex-docstring">Get the average of a number <code class="codex-param">lst</code>.</div></div>
+<div class="codex-doc-node codex-operator codex-function"><code class="codex-name">random-integer</code><code class="codex-lambda-list">(small large &amp;optional seed)</code><div class="codex-docstring">Get a random integer between <code class="codex-param">small</code> and <code class="codex-param">large</code>.</div></div>
+<div class="codex-doc-node codex-operator codex-function"><code class="codex-name">puts</code><code class="codex-lambda-list">(obj)</code><div class="codex-docstring">Print <code class="codex-param">obj</code> to standard output with trailing newline.</div></div>
+<div class="codex-doc-node codex-operator codex-function"><code class="codex-name">perror</code><code class="codex-lambda-list">(obj)</code><div class="codex-docstring">Print <code class="codex-param">obj</code> to standard error with trailing newline.</div></div>
+<div class="codex-doc-node codex-operator codex-function"><code class="codex-name">argument-vector</code><code class="codex-lambda-list">nil</code><div class="codex-docstring">Unprocessed argv (argument vector)</div></div>
+<div class="codex-doc-node codex-operator codex-function"><code class="codex-name">argument-script</code><code class="codex-lambda-list">nil</code><div class="codex-docstring">Processed command-line argument(s) in scripting mode.</div></div>
+<div class="codex-doc-node codex-operator codex-function"><code class="codex-name">platform</code><code class="codex-lambda-list">nil</code><div class="codex-docstring">Detect platform type in a portable way.</div></div>
+<div class="codex-doc-node codex-operator codex-function"><code class="codex-name">quit-with-status</code><code class="codex-lambda-list">(&amp;optional status)</code><div class="codex-docstring">Quit a program with optional exit status in a portable way.</div></div>
+<div class="codex-doc-node codex-operator codex-function"><code class="codex-name">compile-program</code><code class="codex-lambda-list">(program main)</code><div class="codex-docstring">Compile a program to an executable. Support SBCL, CCL and CLISP.</div></div>
+
+</p>
+    </main>
+  </article>
+  <footer>
+    <div class="info">
+      Created with <a href="https://github.com/CommonDoc/codex">Codex</a>.
+    </div>
+  </footer>
+  <script>
+   HighlightLisp.highlight_auto();
+  </script>
+
+  </body>
+</html>
