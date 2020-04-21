@@ -1,2 +1,2 @@
 * Add `argument-program` function
-* Add ASDF configuration file
+* Check whether Clozure CL exists in wrapper scripts
