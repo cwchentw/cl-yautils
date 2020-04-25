@@ -7,6 +7,7 @@
   (:export :*safe-mode*
            :defined
            :nullable
+           :while
            :average
            :random-integer
            :puts
@@ -14,25 +15,32 @@
            :quit-with-status
            :compile-program
            :argument-vector
-           :argument
+           :argument-script
            :platform))
 
 (in-package :cl-yautils)
 
 (defvar *safe-mode* nil
-  "Validate data at runtime")
+  "Validate data at runtime if true.")
 
 (defmacro defined (obj)
-  "Check whether obj is defined."
+  "Check whether @cl:param(obj) is defined."
   `(and (ignore-errors ,obj) t))
 
 (deftype nullable (type)
-  "Define nullable type"
+  "Define nullable @cl:param(type)"
   `(or null ,type))
+
+(defmacro while (test &body body)
+  "`while` iterative control structure seen in Algol family languages."
+  `(loop
+      (when (not ,test)
+        (return))
+      ,@body))
 
 (defun average (lst)
   (declare (ftype (function (list) number) average))
-  "Get the average of a number list."
+  "Get the average of a number @cl:param(lst)."
   (when *safe-mode*
     (check-type lst list)
     (assert (every #'numberp lst)))
@@ -44,7 +52,7 @@
              (integer integer &optional random-state)
              integer)
            random-integer))
-  "Get a random integer between small and large."
+  "Get a random integer between @cl:param(small) and @cl:param(large)."
   (when *safe-mode*
     (check-type small integer)
     (check-type large integer)
@@ -54,20 +62,20 @@
              (or seed (make-random-state t)))))
 
 (defun puts (obj)
-  "Print obj to standard output with trailing newline."
+  "Print @cl:param(obj) to standard output with trailing newline."
   (if (stringp obj)
       (write-line obj)
       (write-line (princ-to-string obj))))
 
 (defun perror (obj)
-  "Print obj to standard error with trailing newline."
+  "Print @cl:param(obj) to standard error with trailing newline."
   (if (stringp obj)
       (write-line obj *error-output*)
       (write-line (princ-to-string obj) *error-output*)))
 
 (defun quit-with-status (&optional status)
   (declare ((nullable integer) status))
-  "Quit a program with exit status"
+  "Quit a program with optional exit status in a portable way."
   (when (null status)  ; Fallback to default status
     (setq status 0))   ;  when no status is assigned.
   (when *safe-mode*
@@ -85,7 +93,7 @@
 
 (defun compile-program (program main)
   (declare (string program) (function main))
-  "Compile a program to an executable"
+  "Compile a program to an executable. Support SBCL, CCL and CLISP."
   (when *safe-mode*
     (check-type program string)
     (check-type main function))
@@ -114,9 +122,9 @@
   #-(or sbcl ccl clisp abcl ecl)
     (error "Unsupported Common Lisp implementation"))
 
-(defun argument ()
-  (declare (ftype (function () list) argument))
-  "Processed command-line argument(s)"
+(defun argument-script ()
+  (declare (ftype (function () list) argument-vector))
+  "Processed command-line argument(s) in scripting mode."
   (let* ((args (argument-vector))
          #+sbcl   (args (rest args))
          #+ccl    (args (rest (rest (rest (rest args)))))
@@ -127,7 +135,7 @@
 
 (defun platform ()
   (declare (ftype (function () symbol) platform))
-  "Detect platform type"
+  "Detect platform type in a portable way."
   #+sbcl   (cond ((string= "Win32" (software-type)) :windows)
                  ((string= "Darwin" (software-type)) :macos)
                  ((string= "Linux" (software-type)) :linux)

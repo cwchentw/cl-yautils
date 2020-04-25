@@ -13,4 +13,4 @@ rem Consume first argument.
 shift
 
 rem Run SBCL in batch mode, setting the external format to UTF-8.
-sbcl --noinform --eval "(setf sb-impl::*default-external-format* :UTF-8)" --script %*
+sbcl --noinform --eval "(setf sb-impl::*default-external-format* :UTF-8)" --load %*
