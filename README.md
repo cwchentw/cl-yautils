@@ -12,7 +12,7 @@ cl-yautils is still experimental and for personal use only. The API may change w
 
 ## System Requirements
 
-We test cl-yautils against the following Common Lisp implementations:
+We test *cl-yautils.lisp* against the following Common Lisp implementations:
 
 * SBCL (Steel Bank Common Lisp)
 * CCL (Clozure CL)
@@ -20,11 +20,13 @@ We test cl-yautils against the following Common Lisp implementations:
 * ECL (Embeddable Common Lisp)
 * ABCL (Armed Bear Common Lisp)
 
-We run the code of cl-yautils on Windows, macOS and GNU/Linux.
+The code of *cl-yautils.lisp* are portable among Windows, macOS and GNU/Linux but untested on BSD or Solaris.
 
-## How to Use?
+## Usage
 
 Copy *cl-yautils.lisp* to your own project. Load it in your program.
+
+Alternatively, copy the whole repo to *local-projects/* subdirectory of your [QuickLisp](https://www.quicklisp.org/) or [Roswell](https://github.com/roswell/roswell) distribution.
 
 Scripts under [scripts](/scripts/) directory are optional. Just copy whatever you need.
 
@@ -61,6 +63,19 @@ Currently, we implement wrappers for SBCL, Clozure CL and ABCL.
 ### *cl-yautils.lisp*
 
 A collection of utility functions. This script is packaged under `:cl-yautils`. See [examples](/examples/) for its usage.
+
+## For Lisp Learners
+
+There is no real batch mode in Clozure CL and ABCL. To simulate such mode in both, add `(quit)` at the end of a script.
+
+Here is a tiny instance:
+
+```lisp
+(write-line "Hello World")
+
+;; Simulate batch mode in CCL and ABCL.
+#+(or ccl abcl) (quit)
+```
 
 ## Copyright
 
