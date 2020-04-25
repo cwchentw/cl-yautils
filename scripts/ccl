@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Function to get the real command
+#  of Clozure CL on a Unix host.
 ccl () {
   if [ "Linux" = $(uname) ];
   then
@@ -38,6 +40,13 @@ ccl () {
     exit 1;
   fi
 }
+
+# Check whether Clozure CL is available.
+if ! command -v "$(ccl)" --version 2>/dev/null 1>&2;
+then
+  echo "No Clozure CL on the system" >&2;
+  exit 1;
+fi
 
 script="$1";
 
