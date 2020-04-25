@@ -14,14 +14,12 @@ root=$(dirname "$0");
 # Check whether some Lisp script is available.
 script=$1;
 
-if [ -z "$script" ] || [ ! -f "$script" ];
+if [ -f "$script" ];
 then
-  echo "Not a valid Lisp script" >&2;
-  exit 1;
+  # Consume the first argument.
+  shift;
+
+  java -jar "$root/abcl.jar" --noinform --eval "(require :abcl-contrib)" --load "$script" "$@";
+else
+  java -jar "$root/abcl.jar" --eval "(require :abcl-contrib)" "$@";
 fi
-
-# Consume first argument.
-shift;
-
-# Run ABCL quietly.
-java -jar "$root/abcl.jar" --noinform --eval "(require :abcl-contrib)" --load "$script" "$@";
