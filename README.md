@@ -32,9 +32,29 @@ Scripts under [scripts](/scripts/) directory are optional. Just copy whatever yo
 
 ### Wrappers
 
-The scripts under [scripts](/scripts/) directory are wrappers for specific Common Lisp implementations. Among them, *xxxrun* (and *xxxrun.bat*) are used to invoke Common Lisp scripts in batch mode. *xxxrepl* (and *xxxrepl.bat*) are used to run a REPL environment of Common Lisp.
+The scripts under [scripts](/scripts/) directory are the wrappers for specific Common Lisp implementations. Our wrappers can run in either interacting or batching mode.
 
-The scripts without any file extension are POSIX shell scripts, for Unix. The scripts with *.bat* extension are Batch scripts, for Windows.
+Take `sbclrun` as an instance. Run `sbclrun` without argument to start the REPL environment of SBCL:
+
+```
+$ sbclrun
+```
+
+Run `sbclrun` with a Common Lisp script to run this script in batch mode:
+
+```
+$ sbclrun path/to/source.lisp
+```
+
+`sbclrun` shares the same arguments as SBCL itself:
+
+```
+$ sbclrun --help
+```
+
+Since `sbclrun` is just a thin wrapper for SBCL, it passes all argument(s) to SBCL without any modification.
+
+The wrapper scripts without any file extension are POSIX shell scripts, for Unix. The scripts with *.bat* extension are Batch scripts, for Windows.
 
 Currently, we implement wrappers for SBCL, Clozure CL and ABCL.
 
