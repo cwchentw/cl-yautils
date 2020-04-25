@@ -20,7 +20,7 @@ We test *cl-yautils.lisp* against the following Common Lisp implementations:
 * ECL (Embeddable Common Lisp)
 * ABCL (Armed Bear Common Lisp)
 
-The code of *cl-yautils.lisp* are portable among Windows, macOS and GNU/Linux but untested on BSD or Solaris.
+The code of *cl-yautils.lisp* are portable among Windows, macOS and GNU/Linux but untested on BSD and Solaris.
 
 ## Usage
 
@@ -34,7 +34,7 @@ Scripts under [scripts](/scripts/) directory are optional. Just copy whatever yo
 
 ### Wrappers
 
-The scripts under [scripts](/scripts/) directory are the wrappers for specific Common Lisp implementations. Our wrappers can run in either interacting or batching mode.
+The scripts under [scripts](/scripts/) directory are the wrappers for specific Common Lisp implementations. Our wrappers can run in either interactive or batch mode.
 
 Take `sbclrun` as an instance. Run `sbclrun` without argument to start the REPL environment of SBCL:
 
