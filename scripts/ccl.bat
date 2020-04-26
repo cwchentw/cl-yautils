@@ -27,8 +27,22 @@ rem Fallback to interactive mode.
 goto interactive_mode
 
 :batch_mode
-rem %script% is the first argument. Hence, there is no need to shift first argument.
-%ccl% --load %*
+rem Consume one argument, which is %script%
+shift
+
+set args=
+:collect_args
+set arg=%1
+if not "x%arg%" == "x" (
+    set args=%args% %arg%
+
+    rem Consume one more argument.
+    shift
+
+    goto collect_args
+)
+
+%ccl% --load %script% -- %args%
 
 rem Exit the program with inherited return value.
 exit /B %ERRORLEVEL%
