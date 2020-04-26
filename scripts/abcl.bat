@@ -14,10 +14,18 @@ rem Get the path of a Lisp script from first argument.
 set script=%1
 
 rem Check whether the Lisp script is valid.
-if not exist %script% do echo "Not a valid Lisp script" && exit /b 1
+rem Run in batch mode if %script% is a file.
+if exist %script% goto batch_mode
 
-rem Consume first argument.
-shift
+rem Fallback to interactive mode.
+goto interactive_mode
 
-rem Run ABCL compiler in batch mode.
+:batch_mode
 java -jar %rootdir%abcl.jar --noinform --eval "(require :abcl-contrib)" --load %*
+rem %script% is the first argument. Hence, there is no need to shift first argument.
+
+rem Exit the program with inherited return value.
+exit /B %ERRORLEVEL%
+
+:interactive_mode
+java -jar %rootdir%abcl.jar --eval "(require :abcl-contrib)" %*
