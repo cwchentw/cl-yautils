@@ -37,7 +37,22 @@ rem Fallback to interactive mode.
 goto interactive_mode
 
 :batch_mode
-java -jar %rootdir%abcl.jar --noinform %require_abcl_contrib% --load %*
+rem Consume one argument, which is %script%
+shift
+
+set args=
+:collect_args
+set arg=%1
+if not "x%arg%" == "x" (
+    set args=%args% %arg%
+
+    rem Consume one more argument.
+    shift
+
+    goto collect_args
+)
+
+java -jar %rootdir%abcl.jar --noinform %require_abcl_contrib% --load %script% -- %args%
 rem %script% is the first argument. Hence, there is no need to shift first argument.
 
 rem Exit the program with inherited return value.
