@@ -80,6 +80,10 @@
     (setq status 0))   ;  when no status is assigned.
   (when *safe-mode*
     (check-type status integer))
+  ;; Disable exit in Swank session.
+  ;; Just return status code to the caller.
+  #+swank  status
+  ;; Exit a program when not in Swank session.
   #+sbcl   (sb-ext:quit :unix-status status)
   #+ccl    (if (string= "Microsoft Windows" (software-type))
                (ccl:external-call "exit" :int status)
