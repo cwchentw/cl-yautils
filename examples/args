@@ -85,7 +85,7 @@ then
   fi
 
   # Invoke Clozure CL wrapper.
-  cclrun "$root/args.lisp" -- "$@";
+  ccl "$root/args.lisp" -- "$@";
 elif [ "$CLISP" = "$lisp" ];
 then
   # Check whether CLISP exists.
@@ -123,5 +123,5 @@ then
   fi
 
   # Invoke ABCL wrapper.
-  abclrun "$root/args.lisp" -- "$@";
+  abcl "$root/args.lisp" -- "$@";
 fi
