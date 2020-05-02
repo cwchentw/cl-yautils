@@ -84,7 +84,8 @@ then
     exit 1;
   fi
 
-  # Invoke Clozure CL wrapper.
+  # `ccl` is a Clozure CL wrapper.
+  # Hence, there is no need to add `--` here.
   ccl "$root/args.lisp" "$@";
 elif [ "$CLISP" = "$lisp" ];
 then
@@ -122,6 +123,7 @@ then
     exit 1;
   fi
 
-  # Invoke ABCL wrapper.
+  # `abcl` is a Armed Bear CL wrapper.
+  # Hence, there is no need to add `--` here.
   abcl "$root/args.lisp" "$@";
 fi

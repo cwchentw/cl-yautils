@@ -73,6 +73,8 @@ sbclrun %rootdir%args.lisp %args%
 exit /B 0
 
 :runccl
+rem `ccl` is a Clozure CL wrapper.
+rem Hence, there is no need to add `--` here.
 ccl %rootdir%args.lisp %args%
 exit /B 0
 
@@ -85,5 +87,7 @@ ecl -shell %rootdir%args.lisp %args%
 exit /B 0
 
 :runabcl
+rem `abcl` is a Armed Bear CL wrapper.
+rem Hence, there is no need to add `--` here.
 abcl %rootdir%args.lisp %args%
 exit /B 0
