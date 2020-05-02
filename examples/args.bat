@@ -73,7 +73,7 @@ sbclrun %rootdir%args.lisp %args%
 exit /B 0
 
 :runccl
-cclrun %rootdir%args.lisp -- %args%
+ccl %rootdir%args.lisp -- %args%
 exit /B 0
 
 :runclisp
@@ -85,5 +85,5 @@ ecl -shell %rootdir%args.lisp %args%
 exit /B 0
 
 :runabcl
-abclrun %rootdir%args.lisp -- %args%
+abcl %rootdir%args.lisp -- %args%
 exit /B 0
