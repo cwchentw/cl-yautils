@@ -35,10 +35,10 @@ script=$1;
 
 if [ -f "$script" ];
 then
-  # Consume the first argument.
+  # Consume the first argument, which is $script.
   shift;
 
-  java -jar "$root/abcl.jar" --noinform "$require_abcl_contrib" --load "$script" "$@";
+  java -jar "$root/abcl.jar" --noinform "$require_abcl_contrib" --load "$script" -- "$@";
 else
   java -jar "$root/abcl.jar" "$require_abcl_contrib" "$@";
 fi
