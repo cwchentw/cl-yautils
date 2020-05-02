@@ -123,7 +123,7 @@ then
     exit 1;
   fi
 
-  # `abcl` is a Armed Bear CL wrapper.
+  # `abcl` is an Armed Bear CL wrapper.
   # Hence, there is no need to add `--` here.
   abcl "$root/args.lisp" "$@";
 fi

@@ -87,7 +87,7 @@ ecl -shell %rootdir%args.lisp %args%
 exit /B 0
 
 :runabcl
-rem `abcl` is a Armed Bear CL wrapper.
+rem `abcl` is an Armed Bear CL wrapper.
 rem Hence, there is no need to add `--` here.
 abcl %rootdir%args.lisp %args%
 exit /B 0
