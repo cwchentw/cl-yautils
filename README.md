@@ -4,6 +4,8 @@
 
 Yet another utilities for Common Lisp.
 
+See its website [here](https://cwchentw.github.io/cl-yautils/).
+
 ## Warning
 
 DON'T USE IT IN PRODUCTION ENVIRONMENT.
@@ -62,7 +64,7 @@ Currently, we implement wrappers for SBCL, Clozure CL and ABCL.
 
 ### *cl-yautils.lisp*
 
-A collection of utility functions. This script is packaged under `:cl-yautils`. See [examples](/examples/) for its usage.
+A collection of utility functions. This script is packaged under `:cl-yautils`. See its API [here](https://cwchentw.github.io/cl-yautils/). See its [examples](/examples/) for its usage.
 
 ## For Lisp Learners
 
