@@ -2,6 +2,7 @@
 
 (use-package :cl-yautils)
 
+;; Simulate main function.
 (defun main ()
   (prog ((i 1))
     (while (<= i 10)
@@ -9,5 +10,3 @@
       (finish-output)
       (incf i 1)))
   (quit-with-status))
-
-(main)

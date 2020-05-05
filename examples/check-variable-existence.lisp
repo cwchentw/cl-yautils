@@ -2,14 +2,13 @@
 
 (use-package 'cl-yautils)
 
+;; Simulate main function.
 (defun main ()
   (assert (defined t))
-  ; nil is undefined.
+  ;; nil is undefined.
   (assert (equal nil (defined nil)))
   (assert (defined 3))
   (assert (defined '(1 2 3 4 5)))
-  ; `non-existing` is undefined.
+  ;; `non-existing` is undefined.
   (assert (equal nil (defined non-existing)))
   (quit-with-status 0))
-
-(main)
