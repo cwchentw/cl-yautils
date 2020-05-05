@@ -50,11 +50,54 @@
     </aside>
     <main class="codex-section">
       <p>
-<div class="codex-doc-node codex-operator codex-macro"><code class="codex-name">defined</code><code class="codex-lambda-list">(obj)</code><div class="codex-docstring">Check whether <code class="codex-param">obj</code> is defined.</div></div>
-<div class="codex-doc-node codex-type"><code class="codex-name">nullable</code><code class="codex-type-def">(type)</code><div class="codex-docstring">Define nullable <code class="codex-param">type</code></div></div>
-<div class="codex-doc-node codex-operator codex-macro"><code class="codex-name">while</code><code class="codex-lambda-list">(test &amp;body body)</code><div class="codex-docstring">`while` iterative control structure seen in Algol family languages.</div></div>
+  <div class="codex-doc-node codex-operator codex-macro"><code class="codex-name">defined</code><code class="codex-lambda-list">(obj)</code><div class="codex-docstring">Check whether <code class="codex-param">obj</code> is defined.</div></div>
+</p><pre><code class="lisp">(load &quot;cl-yautils.lisp&quot;)
 
-</p>
+(use-package 'cl-yautils)
+
+;; Simulate main function.
+(defun main ()
+  (assert (defined t))
+  ;; nil is undefined.
+  (assert (equal nil (defined nil)))
+  (assert (defined 3))
+  (assert (defined '(1 2 3 4 5)))
+  ;; `non-existing` is undefined.
+  (assert (equal nil (defined non-existing)))
+  (quit-with-status 0))
+</code></pre><p>
+  <div class="codex-doc-node codex-type"><code class="codex-name">nullable</code><code class="codex-type-def">(type)</code><div class="codex-docstring">Define nullable <code class="codex-param">type</code></div></div>
+</p><pre><code class="lisp">(load &quot;cl-yautils.lisp&quot;)
+
+(use-package 'cl-yautils)
+
+(defun integer-or-null-p (obj)
+  (typep obj '(nullable integer)))
+
+;; Simulate main function.
+(defun main ()
+  ;; 3 is either integer or null.
+  (assert (integer-or-null-p 3))
+  ;; nil is either integer or null.
+  (assert (integer-or-null-p nil))
+  ;; &quot;3&quot; is neither integer nor null.
+  (assert (equal nil (integer-or-null-p &quot;3&quot;)))
+  (quit-with-status))
+</code></pre><p>
+  <div class="codex-doc-node codex-operator codex-macro"><code class="codex-name">while</code><code class="codex-lambda-list">(test &amp;body body)</code><div class="codex-docstring">`while` iterative control structure seen in Algol family languages.</div></div>
+</p><pre><code class="lisp">(load &quot;cl-yautils.lisp&quot;)
+
+(use-package :cl-yautils)
+
+;; Simulate main function.
+(defun main ()
+  (prog ((i 1))
+    (while (&lt;= i 10)
+      (puts i)
+      (finish-output)
+      (incf i 1)))
+  (quit-with-status))
+</code></pre>
     </main>
   </article>
   <footer>

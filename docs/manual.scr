@@ -41,26 +41,125 @@ Later, @cl:spec(require) it in either a Lisp session or a Lisp script:
 @title(Function)
 
 @cl:with-package[name="cl-yautils"](
-@cl:doc(function average (list) number)
-@cl:doc(function random-integer (integer integer) integer)
-@cl:doc(function puts (object) string)
-@cl:doc(function perror (object) string)
-@cl:doc(function argument-vector () list)
-@cl:doc(function argument-script () list)
-@cl:doc(function platform () symbol)
-@cl:doc(function quit-with-status (&optional integer) nil)
-@cl:doc(function compile-program (string function) nil)
+  @cl:doc(function average (list) number)
+  @cl:doc(function random-integer (integer integer) integer)
 )
+
+@cl:with-package[name="cl-yautils"](
+  @cl:doc(function puts (object) string)
+)
+
+@begin[lang=lisp](code)
+(load "cl-yautils.lisp")
+
+(use-package 'cl-yautils)
+
+;; Simulate main function.
+(defun main ()
+  (puts "你好，世界")
+  (puts "こんにちは世界")
+  (puts "안녕 세상")
+  (finish-output)  ; Trick for Clozure CL.
+  (quit-with-status 0))
+@end(code)
+
+@cl:with-package[name="cl-yautils"](
+  @cl:doc(function perror (object) string)
+  @cl:doc(function argument-vector () list)
+  @cl:doc(function argument-script () list)
+  @cl:doc(function platform () symbol)
+  @cl:doc(function quit-with-status (&optional integer) nil)
+)
+
+@cl:with-package[name="cl-yautils"](
+  @cl:doc(function compile-program (string function) nil)
+)
+
+@begin[lang=lisp](code)
+(load "cl-yautils.lisp")
+
+(use-package 'cl-yautils)
+
+(defun main ()
+  (puts "Hello World")
+  (finish-output)  ; Trick for Clozure CL.
+  (quit-with-status 0))
+
+(if (equal :windows (platform))
+    (defvar *program* "program.exe")
+    (defvar *program* "program"))
+
+(compile-program *program* #'main)
+(quit-with-status)
+@end(code)
 @end(section)
 
 @begin(section)
 @title(Macro)
 
 @cl:with-package[name="cl-yautils"](
-@cl:doc(macro defined)
-@cl:doc(type nullable)
-@cl:doc(macro while)
+  @cl:doc(macro defined)
 )
+
+@begin[lang=lisp](code)
+(load "cl-yautils.lisp")
+
+(use-package 'cl-yautils)
+
+;; Simulate main function.
+(defun main ()
+  (assert (defined t))
+  ;; nil is undefined.
+  (assert (equal nil (defined nil)))
+  (assert (defined 3))
+  (assert (defined '(1 2 3 4 5)))
+  ;; `non-existing` is undefined.
+  (assert (equal nil (defined non-existing)))
+  (quit-with-status 0))
+@end(code)
+
+@cl:with-package[name="cl-yautils"](
+  @cl:doc(type nullable)
+)
+
+@begin[lang=lisp](code)
+(load "cl-yautils.lisp")
+
+(use-package 'cl-yautils)
+
+(defun integer-or-null-p (obj)
+  (typep obj '(nullable integer)))
+
+;; Simulate main function.
+(defun main ()
+  ;; 3 is either integer or null.
+  (assert (integer-or-null-p 3))
+  ;; nil is either integer or null.
+  (assert (integer-or-null-p nil))
+  ;; "3" is neither integer nor null.
+  (assert (equal nil (integer-or-null-p "3")))
+  (quit-with-status))
+@end(code)
+
+@cl:with-package[name="cl-yautils"](
+  @cl:doc(macro while)
+)
+
+@begin[lang=lisp](code)
+(load "cl-yautils.lisp")
+
+(use-package :cl-yautils)
+
+;; Simulate main function.
+(defun main ()
+  (prog ((i 1))
+    (while (<= i 10)
+      (puts i)
+      (finish-output)
+      (incf i 1)))
+  (quit-with-status))
+@end(code)
+
 @end(section)
 
 @begin(section)
