@@ -1,6 +1,7 @@
 (in-package :cl-user)
 
 (defpackage :cl-yautils
+  (:nicknames :yau)
   (:use :cl)
   (:documentation
     "Yet another utilities for Common Lisp")

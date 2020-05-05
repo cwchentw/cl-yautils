@@ -64,11 +64,11 @@ Currently, we implement wrappers for SBCL, Clozure CL and ABCL.
 
 ### *cl-yautils.lisp*
 
-A collection of utility functions. This script is packaged under `:cl-yautils`. See its API [here](https://cwchentw.github.io/cl-yautils/). See its [examples](/examples/) for its usage.
+A collection of utility functions and utility macros. This script is packaged under `:cl-yautils` or its nickname `:yau`. See [here](https://cwchentw.github.io/cl-yautils/) for the API of **cl-yautils**. See some [examples](/examples/) for its usage.
 
 ## For Lisp Learners
 
-There is no real batch mode in Clozure CL and ABCL. To simulate such mode in both, add `(quit)` at the end of a script.
+There is no real batch mode or scripting mode in Clozure CL and ABCL. To simulate such mode in both, add `(quit)` at the end of a script.
 
 Here is a tiny instance:
 
