@@ -52,7 +52,21 @@
       <p>
   <div class="codex-doc-node codex-operator codex-function"><code class="codex-name">average</code><code class="codex-lambda-list">(lst)</code><div class="codex-docstring">Get the average of a number <code class="codex-param">lst</code>.</div></div>
   <div class="codex-doc-node codex-operator codex-function"><code class="codex-name">random-integer</code><code class="codex-lambda-list">(small large &amp;optional seed)</code><div class="codex-docstring">Get a random integer between <code class="codex-param">small</code> and <code class="codex-param">large</code>.</div></div>
-</p><p>
+</p><pre><code class="lisp">(load &quot;cl-yautils.lisp&quot;)
+
+(use-package 'cl-yautils)
+
+;; Simulate main function.
+(defun main ()
+              ;; Get a random integer
+              ;;  with an internal random seed.
+  (prog ((num (random-integer 1 100)))
+    (if (evenp num)
+        (format t &quot;~d is even~%&quot; num)
+        (format t &quot;~d is odd~%&quot; num)))
+  (finish-output)  ; Trick for Clozure CL.
+  (quit-with-status))
+</code></pre><p>
   <div class="codex-doc-node codex-operator codex-function"><code class="codex-name">puts</code><code class="codex-lambda-list">(obj)</code><div class="codex-docstring">Print <code class="codex-param">obj</code> to standard output with trailing newline.</div></div>
 </p><pre><code class="lisp">(load &quot;cl-yautils.lisp&quot;)
 

@@ -45,6 +45,23 @@ Later, @cl:spec(require) it in either a Lisp session or a Lisp script:
   @cl:doc(function random-integer (integer integer) integer)
 )
 
+@begin[lang=lisp](code)
+(load "cl-yautils.lisp")
+
+(use-package 'cl-yautils)
+
+;; Simulate main function.
+(defun main ()
+              ;; Get a random integer
+              ;;  with an internal random seed.
+  (prog ((num (random-integer 1 100)))
+    (if (evenp num)
+        (format t "~d is even~%" num)
+        (format t "~d is odd~%" num)))
+  (finish-output)  ; Trick for Clozure CL.
+  (quit-with-status))
+@end(code)
+
 @cl:with-package[name="cl-yautils"](
   @cl:doc(function puts (object) string)
 )
