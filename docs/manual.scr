@@ -188,4 +188,39 @@ Later, @cl:spec(require) it in either a Lisp session or a Lisp script:
 @cl:doc(variable false)
 )
 This package declares two boolean constants @c(true) and @c(false). Our functions @c(puts) and @c(perror) print them as @c("true") and @c("false") respectively. Otherwise, they behave exactly same as ordinary @c(t) and @c(nil).
+
+
+Our boolean constants don't work well on Clozure CL.
+
+
+@begin[lang=lisp](code)
+(load "cl-yautils")
+
+(use-package 'cl-yautils)
+
+;; Trick for Clozure CL.
+#+ccl (defconstant true t)
+#+ccl (defconstant false nil)
+
+;; Simulate main function.
+(defun main ()
+  ;; Basic boolean algebra.
+  (assert (equal true (and true true)))
+  (assert (equal false (and true false)))
+
+  ;; princ-to-string is overloaded
+  ;;  in the package.
+  (puts true)
+  (puts false)
+  (puts :foo)
+  (puts 3.14159)
+  (puts "Hello World")
+  (finish-output)  ;; Trick for Clozure CL.
+
+  ;; princ-to-string remains unmodified
+  ;;  outside the package.
+  (assert (string= "T" (princ-to-string true)))
+  (assert (string= "NIL" (princ-to-string false)))
+  (quit-with-status))
+@end(code)
 @end(section)

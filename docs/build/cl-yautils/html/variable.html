@@ -54,7 +54,37 @@
 <div class="codex-doc-node codex-variable"><code class="codex-name">true</code><div class="codex-docstring">true is an alias to t</div></div>
 <div class="codex-doc-node codex-variable"><code class="codex-name">false</code><div class="codex-docstring">false is an alias to nil</div></div>
 
-This package declares two boolean constants <code>true</code> and <code>false</code>. Our functions <code>puts</code> and <code>perror</code> print them as <code>&quot;true&quot;</code> and <code>&quot;false&quot;</code> respectively. Otherwise, they behave exactly same as ordinary <code>t</code> and <code>nil</code>.
+This package declares two boolean constants <code>true</code> and <code>false</code>. Our functions <code>puts</code> and <code>perror</code> print them as <code>&quot;true&quot;</code> and <code>&quot;false&quot;</code> respectively. Otherwise, they behave exactly same as ordinary <code>t</code> and <code>nil</code>.</p><p>
+Our boolean constants don't work well on Clozure CL.</p><p>
+</p><pre><code class="lisp">(load &quot;cl-yautils&quot;)
+
+(use-package 'cl-yautils)
+
+;; Trick for Clozure CL.
+#+ccl (defconstant true t)
+#+ccl (defconstant false nil)
+
+;; Simulate main function.
+(defun main ()
+  ;; Basic boolean algebra.
+  (assert (equal true (and true true)))
+  (assert (equal false (and true false)))
+
+  ;; princ-to-string is overloaded
+  ;;  in the package.
+  (puts true)
+  (puts false)
+  (puts :foo)
+  (puts 3.14159)
+  (puts &quot;Hello World&quot;)
+  (finish-output)  ;; Trick for Clozure CL.
+
+  ;; princ-to-string remains unmodified
+  ;;  outside the package.
+  (assert (string= &quot;T&quot; (princ-to-string true)))
+  (assert (string= &quot;NIL&quot; (princ-to-string false)))
+  (quit-with-status))
+</code></pre><p>
 </p>
     </main>
   </article>

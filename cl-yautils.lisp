@@ -6,8 +6,8 @@
   (:documentation
     "Yet another utilities for Common Lisp")
   (:export :*safe-mode*
-           :false
-           :true
+           #-ccl :false
+           #-ccl :true
            :defined
            :nullable
            :while
@@ -29,8 +29,8 @@
 ;;;; Begin to declare custom boolean constants ;;;;
 (shadow 'princ-to-string)
 
-(defconstant false nil "false is an alias to nil")
-(defconstant true t "true is an alias to t")
+#-ccl (defconstant false nil "false is an alias to nil")
+#-ccl (defconstant true t "true is an alias to t")
 
 (defgeneric princ-to-string (obj)
   (:method (obj)
