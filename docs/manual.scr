@@ -184,5 +184,8 @@ Later, @cl:spec(require) it in either a Lisp session or a Lisp script:
 
 @cl:with-package[name="cl-yautils"](
 @cl:doc(variable *safe-mode*)
+@cl:doc(variable true)
+@cl:doc(variable false)
 )
+This package declares two boolean constants @c(true) and @c(false). Our functions @c(puts) and @c(perror) print them as @c("true") and @c("false") respectively. Otherwise, they behave exactly same as ordinary @c(t) and @c(nil).
 @end(section)

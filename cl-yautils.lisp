@@ -6,6 +6,8 @@
   (:documentation
     "Yet another utilities for Common Lisp")
   (:export :*safe-mode*
+           :false
+           :true
            :defined
            :nullable
            :while
@@ -23,6 +25,23 @@
 
 (defvar *safe-mode* nil
   "Validate data at runtime if true.")
+
+;;;; Begin to declare custom boolean constants ;;;;
+(shadow 'princ-to-string)
+
+(defconstant false nil "false is an alias to nil")
+(defconstant true t "true is an alias to t")
+
+(defgeneric princ-to-string (obj)
+  (:method (obj)
+  (cl:princ-to-string obj)))
+
+(defmethod princ-to-string ((obj symbol))
+  "Overloaded princ-to-string for symbol type"
+  (cond ((null obj) "false")
+        ((typep obj 'boolean) "true")
+        (t (cl:princ-to-string obj))))
+;;;; End to declare custom boolean constants ;;;;
 
 (defmacro defined (obj)
   "Check whether @cl:param(obj) is defined."
