@@ -84,20 +84,7 @@
   (assert (equal nil (integer-or-null-p &quot;3&quot;)))
   (quit-with-status))
 </code></pre><p>
-  <div class="codex-doc-node codex-operator codex-macro"><code class="codex-name">while</code><code class="codex-lambda-list">(test &amp;body body)</code><div class="codex-docstring">`while` iterative control structure seen in Algol family languages.</div></div>
-</p><pre><code class="lisp">(load &quot;cl-yautils.lisp&quot;)
-
-(use-package :cl-yautils)
-
-;; Simulate main function.
-(defun main ()
-  (prog ((i 1))
-    (while (&lt;= i 10)
-      (puts i)
-      (finish-output)
-      (incf i 1)))
-  (quit-with-status))
-</code></pre>
+</p>
     </main>
   </article>
   <footer>

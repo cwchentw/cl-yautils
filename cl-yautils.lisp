@@ -10,7 +10,6 @@
            #-ccl :true
            :defined
            :nullable
-           :while
            :average
            :random-integer
            :puts
@@ -50,13 +49,6 @@
 (deftype nullable (type)
   "Define nullable @cl:param(type)"
   `(or null ,type))
-
-(defmacro while (test &body body)
-  "`while` iterative control structure seen in Algol family languages."
-  `(loop
-      (when (not ,test)
-        (return))
-      ,@body))
 
 (defun average (lst)
   (declare (ftype (function (list) number) average))

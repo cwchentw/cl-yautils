@@ -12,7 +12,7 @@ implementations and its idiosyncratic problems. In addition, @b(cl-yautils)
 implements common utility function(s).
 
 
-See our repo @link[uri="https://github.com/cwchentw/cl-yautils/"](here).
+See its repo @link[uri="https://github.com/cwchentw/cl-yautils/"](here).
 
 @end(section)
 
@@ -157,26 +157,6 @@ Later, @cl:spec(require) it in either a Lisp session or a Lisp script:
   (assert (equal nil (integer-or-null-p "3")))
   (quit-with-status))
 @end(code)
-
-@cl:with-package[name="cl-yautils"](
-  @cl:doc(macro while)
-)
-
-@begin[lang=lisp](code)
-(load "cl-yautils.lisp")
-
-(use-package :cl-yautils)
-
-;; Simulate main function.
-(defun main ()
-  (prog ((i 1))
-    (while (<= i 10)
-      (puts i)
-      (finish-output)
-      (incf i 1)))
-  (quit-with-status))
-@end(code)
-
 @end(section)
 
 @begin(section)
