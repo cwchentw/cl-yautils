@@ -10,7 +10,7 @@ See its website [here](https://cwchentw.github.io/cl-yautils/).
 
 DON'T USE IT IN PRODUCTION ENVIRONMENT.
 
-cl-yautils is still experimental and for personal use only. The API may change without warning.
+cl-yautils is still experimental and mostly for personal use. The API may break without warning.
 
 ## System Requirements
 
@@ -60,7 +60,7 @@ Since `sbclrun` is just a thin wrapper for SBCL, it passes all argument(s) to SB
 
 The wrapper scripts without any file extension are POSIX shell scripts, for Unix. The scripts with *.bat* extension are Batch scripts, for Windows.
 
-Currently, we implement wrappers for SBCL, Clozure CL and ABCL.
+Currently, we implement the wrappers for SBCL, Clozure CL and ABCL.
 
 ### *cl-yautils.lisp*
 
