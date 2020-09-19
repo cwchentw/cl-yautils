@@ -10,7 +10,7 @@ See its website [here](https://cwchentw.github.io/cl-yautils/).
 
 DON'T USE IT IN PRODUCTION ENVIRONMENT.
 
-cl-yautils is still experimental and mostly for personal use. The API may break without warning.
+cl-yautils is still experimental and mostly for personal use. The API may change without warning.
 
 ## System Requirements
 
