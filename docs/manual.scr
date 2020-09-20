@@ -85,6 +85,18 @@ Later, @cl:spec(require) it in either a Lisp session or a Lisp script:
   @cl:doc(function argument-vector () list)
   @cl:doc(function argument-script () list)
   @cl:doc(function platform () symbol)
+)
+
+The flags emitted by @c(platform) the function:
+
+@begin(list)
+@item(@c(:windows))
+@item(@c(:macos))
+@item(@c(:linux))
+@item(@c(:unix))
+@end(list)
+
+@cl:with-package[name="cl-yautils"](
   @cl:doc(function quit-with-status (&optional integer) nil)
 )
 
