@@ -49,22 +49,14 @@
       <ol class="toc"><li><a href="overview.html" data-node="overview">Overview</a></li><li><a href="install.html" data-node="install">Install</a></li><li><a href="function.html" data-node="function">Function</a></li><li><a href="macro.html" data-node="macro">Macro</a></li><li><a href="variable.html" data-node="variable">Variable</a></li></ol>
     </aside>
     <main class="codex-section">
-      
-
-
-
+      <p>
 <div class="codex-doc-node codex-variable"><code class="codex-name">*safe-mode*</code><div class="codex-docstring">Validate data at runtime if true.</div></div>
 <div class="codex-doc-node codex-variable"><code class="codex-name">true</code><div class="codex-docstring">true is an alias to t</div></div>
 <div class="codex-doc-node codex-variable"><code class="codex-name">false</code><div class="codex-docstring">false is an alias to nil</div></div>
 
-This package declares two boolean constants <code>true</code> and <code>false</code>. Our functions <code>puts</code> and <code>perror</code> print them as <code>&quot;true&quot;</code> and <code>&quot;false&quot;</code> respectively. Otherwise, they behave exactly same as ordinary <code>t</code> and <code>nil</code>.
-
-
-Our boolean constants don't work well on Clozure CL.
-
-
-<pre><code class="lisp">
-(load &quot;cl-yautils&quot;)
+This package declares two boolean constants <code>true</code> and <code>false</code>. Our functions <code>puts</code> and <code>perror</code> print them as <code>&quot;true&quot;</code> and <code>&quot;false&quot;</code> respectively. Otherwise, they behave exactly same as ordinary <code>t</code> and <code>nil</code>.</p><p>
+Our boolean constants don't work well on Clozure CL.</p><p>
+</p><pre><code class="lisp">(load &quot;cl-yautils&quot;)
 
 (use-package 'cl-yautils)
 
@@ -92,8 +84,8 @@ Our boolean constants don't work well on Clozure CL.
   (assert (string= &quot;T&quot; (princ-to-string true)))
   (assert (string= &quot;NIL&quot; (princ-to-string false)))
   (quit-with-status))
-</code></pre>
-
+</code></pre><p>
+</p>
     </main>
   </article>
   <footer>
