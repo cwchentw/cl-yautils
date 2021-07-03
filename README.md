@@ -81,6 +81,4 @@ Here is a tiny instance:
 
 ## Copyright
 
-Copyright (c) 2020 Michael Chen.
-
-Licensed under MIT.
+Copyright (c) 2020 Michelle Chen. Licensed under MIT
