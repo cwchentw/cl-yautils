@@ -16,6 +16,13 @@ One of the following Common Lisp implementations:
 
 The code of *cl-yautils.lisp* are portable among Windows, macOS and GNU/Linux but untested on BSD and Solaris.
 
+## Install
+
+```shell
+$ cd path/to/quicklisp/local-projects
+$ git clone https://github.com/cwchentw/cl-yautils.git
+```
+
 ## Usage
 
 See [examples](/examples).
