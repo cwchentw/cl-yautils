@@ -8,13 +8,13 @@ Yet another utilities for Common Lisp.
 
 One of the following Common Lisp implementations:
 
-* SBCL (Steel Bank Common Lisp)
-* CCL (Clozure CL)
-* CLISP
-* ECL (Embeddable Common Lisp)
-* ABCL (Armed Bear Common Lisp)
+* [SBCL (Steel Bank Common Lisp)](http://www.sbcl.org/)
+* [Clozure Common Lisp](https://ccl.clozure.com/)
+* [CLISP](https://clisp.sourceforge.io/)
+* [Embeddable Common Lisp](https://ecl.common-lisp.dev/)
+* [ABCL (Armed Bear Common Lisp)](https://armedbear.common-lisp.dev/)
 
-The code of *cl-yautils.lisp* are portable among Windows, macOS and GNU/Linux but untested on BSD and Solaris.
+Among those implementations, SBCL is recommended for Lisp newcomers.
 
 ## Install
 
