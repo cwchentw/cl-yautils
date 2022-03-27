@@ -7,6 +7,7 @@
     "Yet another utilities for Common Lisp")
   (:export :defined
            :nullable
+           :default
            :average
            :random-integer
            :puts
@@ -21,6 +22,12 @@
 (deftype nullable (type)
   "Define nullable type"
   `(or null ,type))
+
+(defun default (x n)
+  "Set a default value for a null variable"
+  (if (null x)
+      n
+      x))
 
 (defun average (lst)
   (declare (ftype (function (list) number) average))
