@@ -8,10 +8,12 @@
   (:export :defined
            :nullable
            :default
-           :average
            :random-integer
            :puts
-           :perror))
+           :perror
+           :average
+           :proper-list
+           :flatten))
 
 (in-package :cl-yautils)
 
@@ -28,13 +30,6 @@
   (if (null x)
       n
       x))
-
-(defun average (lst)
-  (declare (ftype (function (list) number) average))
-  "Get the average of a number lst."
-  (check-type lst list)
-  (assert (every #'numberp lst))
-  (/ (apply #'+ lst) (length lst)))
 
 (defun random-integer (small large &optional seed)
   (declare
@@ -61,3 +56,38 @@
   (if (stringp obj)
       (write-line obj *error-output*)
       (write-line (princ-to-string obj) *error-output*)))
+
+(defun average (lst)
+  (declare (ftype (function (list) number) average))
+  "Get the average of a number lst."
+  (check-type lst list)
+  (assert (every #'numberp lst))
+  (/ (apply #'+ lst) (length lst)))
+
+(defun dotted-pair-p (lst)
+  "Detect whether a dotted pair exists"
+  (and (consp lst)
+       (not (listp (cdr lst)))))
+
+(defun dotted-to-proper (lst)
+  "Convert a dotted pair to a proper list"
+  (cons (car lst) (cons (cdr lst) nil)))
+
+(defun proper-list (lst)
+  "Convert a list with dotted pair(s) to a proper list"
+  (cond ((null lst) nil)
+        ((atom lst) (cons lst nil))
+        ((dotted-pair-p lst) (dotted-to-proper lst))
+        (t (append (proper-list (car lst))
+                   (proper-list (cdr lst))))))
+
+(defun flatten (lst)
+  "Converts a list with dotted pair(s) to single level"
+  (cond ((null lst) nil)
+        ((atom lst) (cons lst nil))
+        ((atom (car lst)) (cons (car lst)
+                                (flatten (cdr lst))))
+        ((dotted-pair-p (car lst)) (flatten
+                                     (append (dotted-to-proper (car lst))
+                                             (cdr lst))))
+        (t (append (flatten (car lst)) (flatten (cdr lst))))))
