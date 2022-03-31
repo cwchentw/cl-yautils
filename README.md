@@ -27,19 +27,6 @@ $ git clone https://github.com/cwchentw/cl-yautils.git
 
 See [examples](/examples).
 
-## Note
-
-There is no real batch mode or scripting mode in Clozure CL and ABCL. To simulate such mode in both, add `(quit)` at the end of a script.
-
-Here is a tiny instance:
-
-```lisp
-(write-line "Hello World")
-
-;; Simulate batch mode in CCL and ABCL.
-#+(or ccl abcl) (quit)
-```
-
 ## Copyright
 
 Copyright (c) 2020 Michelle Chen. Licensed under MIT
