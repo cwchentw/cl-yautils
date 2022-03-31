@@ -25,7 +25,29 @@ $ git clone https://github.com/cwchentw/cl-yautils.git
 
 ## Usage
 
-See [examples](/examples).
+### Data Type
+
+* `nullable`: declare a nullable data type ([ex](/examples/nullable-type.lisp))
+
+### Variable
+
+* `default`: set a default value for a variable with `nil` ([ex](/examples/default.lisp))
+* `defined`: check whether a variable is defined ([ex](/examples/check-variable-existence.lisp))
+
+### Math
+
+* `average`: get the average of a list of numbers
+* `random-integer`: create a random integer ([ex](/examples/random-integer.lisp))
+
+### List
+
+* `proper-list`: convert a list with dotted pair(s) to a proper one ([ex](/examples/proper-list.lisp))
+* `flatten`: flatten a list with or without dotted pair(s) ([ex](/examples/flatten.lisp))
+
+### Console
+
+* `puts`: print an object with a trailing newline to standard output
+* `perror`: print an object with a trailing newline to standard error
 
 ## Copyright
 
