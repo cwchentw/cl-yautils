@@ -57,12 +57,9 @@
       (write-line obj *error-output*)
       (write-line (princ-to-string obj) *error-output*)))
 
-(defun average (lst)
-  (declare (ftype (function (list) number) average))
+(defmacro average (&rest args)
   "Get the average of a number lst."
-  (check-type lst list)
-  (assert (every #'numberp lst))
-  (/ (apply #'+ lst) (length lst)))
+  `(/ (+ ,@args) ,(length args)))
 
 (defun dotted-pair-p (lst)
   "Detect whether a dotted pair exists"

@@ -36,7 +36,7 @@ $ git clone https://github.com/cwchentw/cl-yautils.git
 
 ### Math
 
-* `average`: get the average of a list of numbers
+* `average`: get the average of numbers ([ex](/examples/average.lisp))
 * `random-integer`: create a random integer ([ex](/examples/random-integer.lisp))
 
 ### List
