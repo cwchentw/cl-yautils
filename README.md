@@ -51,4 +51,4 @@ $ git clone https://github.com/cwchentw/cl-yautils.git
 
 ## Copyright
 
-Copyright (c) 2020 Michelle Chen. Licensed under MIT
+Copyright (c) 2020-2022 Michelle Chen. Licensed under MIT
