@@ -8,13 +8,14 @@
 
 ;; Simulate a main function.
 (defun main ()
-  (assert (defined t))
-  ;; nil is undefined.
-  (assert (equal nil (defined nil)))
-  (assert (defined 3))
-  (assert (defined '(1 2 3 4 5)))
-  ;; `non-existing` is undefined.
-  (assert (equal nil (defined non-existing)))
+  ;; Check an undefined variable.
+  (assert (not (defined v)))
+  ;; Check a variable which value is nil.
+  (let ((v nil))
+    (assert (defined v)))
+  ;; Check a variable which value is anything else.
+  (let ((v 0))
+    (assert (defined v)))
   (quit-with-status 0))
 
 (main)

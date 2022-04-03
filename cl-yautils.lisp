@@ -17,9 +17,13 @@
 
 (in-package :cl-yautils)
 
-(defmacro defined (obj)
-  "Check whether obj is defined."
-  `(and (ignore-errors ,obj) t))
+(defmacro defined (v)
+  "Check whether a variable is defined"
+  (let ((it (gensym)))
+  `(let ((it (handler-case ,v
+               (unbound-variable (c) nil)
+               (:no-error (c) t))))
+    (and it t))))
 
 (deftype nullable (type)
   "Define nullable type"
