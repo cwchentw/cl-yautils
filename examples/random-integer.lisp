@@ -1,10 +1,7 @@
-#+quicklisp (ql:quickload "cl-portable" :silent t)
 #+quicklisp (ql:quickload "cl-yautils" :silent t)
-#-quicklisp (load "cl-portable.lisp" :print nil)
 #-quicklisp (load "cl-yautils.lisp" :print nil)
 
-(use-package 'cl-portable)
-(use-package 'cl-yautils)
+(import 'cl-yautils::random-integer)
 
 ;; Simulate main function.
 (defun main ()
@@ -14,7 +11,8 @@
     (if (evenp num)
         (format t "~d is even~%" num)
         (format t "~d is odd~%" num)))
-  (finish-output)  ;; Trick for Clozure CL.
-  (quit-with-status))
+  #+ccl (finish-output)  ; Trick for Clozure CL.
+  (quit))
 
+;; Call the main function.
 (main)

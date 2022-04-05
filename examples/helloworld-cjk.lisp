@@ -1,10 +1,8 @@
-#+quicklisp (ql:quickload "cl-portable" :silent t)
 #+quicklisp (ql:quickload "cl-yautils" :silent t)
-#-quicklisp (load "cl-portable.lisp" :print nil)
 #-quicklisp (load "cl-yautils.lisp" :print nil)
 
-(use-package 'cl-portable)
-(use-package 'cl-yautils)
+(import 'cl-yautils::puts)
+(import 'cl-yautils::perror)
 
 ;; Simulate a main function.
 (defun main ()
@@ -14,7 +12,7 @@
   (perror "Something wrong")
   ;; Trick for Clozure CL.
   #+ccl (finish-output)
-  (quit-with-status 0))
+  (quit))
 
 ;; Load the main function.
 (main)

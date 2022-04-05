@@ -1,10 +1,7 @@
-#+quicklisp (ql:quickload "cl-portable" :silent t)
 #+quicklisp (ql:quickload "cl-yautils" :silent t)
-#-quicklisp (load "cl-portable.lisp" :print nil)
 #-quicklisp (load "cl-yautils.lisp" :print nil)
 
-(use-package 'cl-portable)
-(use-package 'cl-yautils)
+(import 'cl-yautils::proper-list)
 
 ;; Simulate a main function.
 (defun main ()
@@ -26,6 +23,7 @@
                          (cons 'c
                                (cons (cons 'd 'e)
                                      (cons 'f 'g)))))))
-  (quit-with-status))
+  (quit))
 
+;; Call the main function.
 (main)
