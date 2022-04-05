@@ -47,7 +47,7 @@ $ git clone https://github.com/cwchentw/cl-yautils.git
 ### Console
 
 * `puts`: print an object with a trailing newline to standard output ([ex](/examples/helloworld-cjk.lisp))
-* `perror`: print an object with a trailing newline to standard error ([ex](/examples/helloworld-cjk.lisp))
+* `puterr`: print an object with a trailing newline to standard error ([ex](/examples/helloworld-cjk.lisp))
 
 ## Copyright
 

@@ -10,7 +10,7 @@
            :default
            :random-integer
            :puts
-           :perror
+           :puterr
            :average
            :proper-list
            :flatten))
@@ -41,7 +41,7 @@
              (integer integer &optional random-state)
              integer)
            random-integer))
-  "Get a random integer between @cl:param(small) and @cl:param(large)."
+  "Get a random integer between small and large"
   (check-type small integer)
   (check-type large integer)
   (assert (< small large))
@@ -50,26 +50,28 @@
              (or seed (make-random-state t)))))
 
 (defun puts (obj)
-  "Print obj to standard output with trailing newline."
+  "Print obj to standard output with a trailing newline"
   (if (stringp obj)
       (write-line obj)
       (write-line (princ-to-string obj))))
 
-(defun perror (obj)
-  "Print obj to standard error with trailing newline."
+(defun puterr (obj)
+  "Print obj to standard error with a trailing newline"
   (if (stringp obj)
       (write-line obj *error-output*)
       (write-line (princ-to-string obj) *error-output*)))
 
 (defmacro average (&rest args)
-  "Get the average of a number lst."
+  "Get the average of numbers"
   `(/ (+ ,@args) ,(length args)))
 
+;; Not exported.
 (defun dotted-pair-p (lst)
   "Detect whether a dotted pair exists"
   (and (consp lst)
        (not (listp (cdr lst)))))
 
+;; Not exported.
 (defun dotted-to-proper (lst)
   "Convert a dotted pair to a proper list"
   (cons (car lst) (cons (cdr lst) nil)))
