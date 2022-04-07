@@ -13,6 +13,9 @@
   ;; Check a variable which value is anything else.
   (let ((v 0))
     (assert (defined v)))
+  (assert (defined #'write-line))
+  ;; FIXME: Fails on SBCL.
+  #-sbcl (assert (not (defined #'unknown)))
   (quit))
 
 ;; Call the main function.

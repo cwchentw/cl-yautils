@@ -22,6 +22,8 @@
   (let ((it (gensym)))
   `(let ((it (handler-case ,v
                (unbound-variable (c) nil)
+               ;; FIXME: Not trigger errors in SBCL.
+               (undefined-function (c) nil)
                (:no-error (c) t))))
     (and it t))))
 

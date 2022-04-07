@@ -32,7 +32,7 @@ $ git clone https://github.com/cwchentw/cl-yautils.git
 ### Variable
 
 * `default`: set a default value for a variable with `nil` ([ex](/examples/default.lisp))
-* `defined`: check whether a variable is defined ([ex](/examples/check-variable-existence.lisp))
+* `defined`: check whether a variable is defined ([ex](/examples/defined.lisp))
 
 ### Math
 
