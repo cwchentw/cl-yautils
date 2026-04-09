@@ -19,13 +19,16 @@
 
 (defmacro defined (v)
   "Check whether a variable is defined"
-  (let ((it (gensym)))
-  `(let ((it (handler-case ,v
-               (unbound-variable (c) nil)
-               ;; FIXME: Not trigger errors in SBCL.
-               (undefined-function (c) nil)
-               (:no-error (c) t))))
-    (and it t))))
+  (let ((it (gensym "DEFINED-RESULT-")))
+    `(let ((,it (handler-case (progn ,v t)
+                  (unbound-variable (c)
+                    (declare (ignore c))
+                    nil)
+                  ;; FIXME: Not trigger errors in SBCL.
+                  (undefined-function (c)
+                    (declare (ignore c))
+                    nil))))
+       (and ,it t))))
 
 (deftype nullable (type)
   "Define nullable type"
